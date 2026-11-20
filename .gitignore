@@ -1,0 +1,48 @@
+# Environment
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules/
+vendor/
+
+# Build files
+dist/
+build/
+.next/
+out/
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# Java
+target/
+*.class
+*.jar
+*.war
+
+# IDE
+.vscode/
+.idea/
+.vs/
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary
+*.tmp
+*.bak
+
+# Testing
+coverage/
+.nyc_output/

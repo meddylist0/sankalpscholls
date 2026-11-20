@@ -1,0 +1,824 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Sankalp &#8211; International &#8211; School</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- favicon
+		============================================ -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+
+    <!-- Google Fonts
+		============================================ -->
+    <link href='https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Style CSS
+		============================================ -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/mobile-menu.css">
+
+    <style>
+        /* General Layout Fixes */
+        body {
+            overflow-x: hidden !important;
+        }
+
+        /* Force nivo-caption to cover the entire slider area */
+        .nivoSlider .nivo-caption {
+            height: 100% !important;
+            width: 100% !important;
+            top: 0 !important;
+            left: 0 !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            opacity: 1 !important;
+            background: transparent !important;
+            pointer-events: auto !important;
+        }
+
+        #slider-1-caption-video {
+            display: block !important;
+            z-index: 100 !important;
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        .video-banner-container {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: stretch;
+            justify-content: stretch;
+        }
+
+        .banner-video-box {
+            width: 100%;
+            height: 100%;
+            background: #000;
+            flex: 1;
+        }
+
+        .banner-video-box iframe {
+            width: 100% !important;
+            height: 100% !important;
+            border: none !important;
+            display: block;
+        }
+
+        /* Ensure control nav and direction nav are visible and above video */
+        .nivo-controlNav,
+        .nivo-directionNav {
+            z-index: 105 !important;
+        }
+
+        /* Gallery: no horizontal scrolling on mobile */
+        .gallery-area.gallery-fullwidth {
+            overflow: hidden;
+        }
+
+        .gallery-wrapper {
+            overflow: hidden;
+            width: 100%;
+        }
+
+        /* ===== Gallery Carousel Card Style ===== */
+        .gallery-card-item {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+            margin: 8px 8px 20px;
+            background: #fff;
+        }
+
+        .gallery-card-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-card-image img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-card-item:hover .gallery-card-image img {
+            transform: scale(1.06);
+        }
+
+        .gallery-card-label {
+            padding: 12px 15px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #333;
+            background: #fff;
+            letter-spacing: 0.3px;
+        }
+
+        .gallery-card-label i {
+            color: #f5b120;
+            margin-right: 6px;
+        }
+
+        /* Gallery carousel nav override */
+        .gallery-carousel.owl-carousel .owl-nav div {
+            background: #004296;
+            color: #fff;
+            width: 38px;
+            height: 38px;
+            line-height: 38px;
+            border-radius: 50%;
+            font-size: 16px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .gallery-carousel.owl-carousel .owl-nav div.owl-prev {
+            left: -18px;
+        }
+
+        .gallery-carousel.owl-carousel .owl-nav div.owl-next {
+            right: -18px;
+        }
+
+        @media (max-width: 767px) {
+            .gallery-card-image img {
+                height: 180px;
+            }
+
+            .gallery-carousel.owl-carousel .owl-nav div.owl-prev {
+                left: 0px;
+            }
+
+            .gallery-carousel.owl-carousel .owl-nav div.owl-next {
+                right: 0px;
+            }
+        }
+
+        /* ===== Teacher Section - Full Image + Mobile Fix ===== */
+        .teachers-large-carousel-area {
+            overflow: hidden;
+        }
+
+        .teacher-large-image {
+            overflow: hidden;
+            border-radius: 12px 12px 0 0;
+            width: 100%;
+        }
+
+        .teacher-large-image img {
+            width: 100%;
+            height: auto !important;
+            max-height: none !important;
+            display: block;
+            object-fit: contain !important;
+        }
+
+        .teacher-large-item {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin: 10px 8px 20px;
+        }
+
+        .single-teacher-large-carousel {
+            padding: 18px 15px 20px;
+        }
+
+        .single-teacher-large-carousel h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 4px;
+        }
+
+        .single-teacher-large-carousel span {
+            color: #f5b120;
+            font-size: 12px;
+            font-style: italic;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .single-teacher-large-carousel p {
+            font-size: 12px;
+            line-height: 20px;
+            color: #666;
+            margin-bottom: 12px;
+        }
+
+        .teacher-large-item .social-links {
+            margin-left: 0;
+            display: block;
+            text-align: center;
+        }
+
+        .teacher-large-item .social-links a {
+            color: #004296;
+            font-size: 14px;
+            margin-right: 10px;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            border-radius: 50%;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s;
+        }
+
+        .teacher-large-item .social-links a:hover {
+            background: #f5b120;
+            color: #fff;
+            border-color: #f5b120;
+        }
+
+        /* Mobile teacher fix */
+        @media (max-width: 767px) {
+            .teachers-large-carousel-area {
+                padding-top: 40px;
+            }
+
+            .teacher-large-image img {
+                width: 100%;
+                height: auto !important;
+                max-height: none !important;
+                object-fit: contain !important;
+            }
+
+            .teacher-large-item {
+                margin: 8px 5px 15px;
+                border-radius: 10px;
+            }
+
+            .teacher-carousel.carousel-style-one.owl-carousel .owl-nav div {
+                left: 0 !important;
+            }
+
+            .teacher-carousel.carousel-style-one.owl-carousel .owl-nav div.owl-next {
+                right: 0 !important;
+            }
+        }
+    </style>
+
+    <!-- Modernizr JS
+		============================================ -->
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
+</head>
+
+<body>
+
+
+    <!--Header Area Start-->
+
+    <div id="header"></div>
+    <!--End of Header Area-->
+    <!--Slider Area Start-->
+    <div class="slider-area slider-two-area">
+        <div class="preview-2">
+            <div id="nivoslider" class="slides">
+                <img src="img/banner/bilding photo.jpg" alt="" title="#slider-1-caption1" />
+                <img src="img/banner/bilding photo.jpg" alt="" title="#slider-1-caption-video" />
+                <img src="img/banner/_MGL0221.JPG" alt="" title="#slider-1-caption2" />
+            </div>
+            <div id="slider-1-caption1" class="nivo-html-caption nivo-caption">
+                <div class="banner-content slider-2">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-7 col-md-7">
+                                <div class="text-content hidden-xs">
+                                    <!-- <p class="sub-title">Your Child can be a genius</p>
+                                        <h1 class="title1">Fun &amp; Learning</h1> -->
+                                    <!-- <div class="banner-readmore">
+                                            <a title="Read more" href="#">Enroll your child</a>	
+                                        </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="slider-1-caption-video" class="nivo-html-caption">
+                <div class="video-banner-container">
+                    <div class="banner-video-box">
+                        <iframe src="https://www.youtube.com/embed/tkgMbvsZLng?si=pSxxTDwoP8sBMnDg&autoplay=0&rel=0"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            <div id="slider-1-caption2" class="nivo-html-caption nivo-caption">
+                <div class="banner-content slider-2 slider-right">
+                    <div class="container">
+                        <div class="row">
+                            <div class="ml-auto col-lg-7 col-md-7">
+                                <!-- <div class="text-content hidden-xs">
+                                        <p class="sub-title">Your Child can be a genius</p>
+                                        <h1 class="title1">Fun &amp; Learning</h1>
+                                        <div class="banner-readmore">
+                                            <a title="Read more" href="#">Enroll your child</a>	
+                                        </div>
+                                    </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End of Slider Area-->
+
+    <!--Activity Area Start-->
+    <section class="about-us-area">
+        <div class="container">
+            <div class="section-title-wrapper title-yellow">
+                <div class="section-title">
+                    <h3>About Us</h3>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                    <div class="about-image-box">
+                        <img src="img/banner/bilding photo.jpg" alt="Sankalp School Building">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                    <div class="about-text-content">
+                        <p class="lead-text">Sankalp school situated at Manneguda Sagar highway in Hyderabad, the pride
+                            of Telangana
+                            state welcoming the students from playgroup to X, CBSE Day- Residential. </p>
+                        <p>The school established in 2017 and being constructed on more than four acres landscape with
+                            student friendly environment. It lays full emphasis on full development of the children
+                            which
+                            enables them to achieve great heights. Transport facility provided for the day scholars and
+                            semi
+                            residential students.</p>
+                        <div class="about-btn">
+                            <a href="About.html" class="button-default">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End of Activity Area-->
+    <!--Advertise Area Start-->
+
+    <!--End of Advertise Area-->
+    <!--Class Area Start-->
+
+    <!--End of Class Area-->
+    <!--Gallery Fullwidth Area start-->
+    <div class="gallery-area gallery-fullwidth section-gray section-padding">
+        <div class="container">
+            <div class="section-title-wrapper title-yellow">
+                <div class="section-title">
+                    <h3>Our Gallery</h3>
+                    <p>Discover Our Sankalp School Photo Gallery</p>
+                </div>
+            </div>
+            <div class="gallery-carousel owl-carousel carousel-style-one">
+                <div class="gallery-card-item overlay-hover">
+                    <div class="gallery-card-image overlay-effect sea-green-overlay">
+                        <a href="#"><img src="img/child-images/MKL (100).JPG" alt="Drawings"></a>
+                        <div class="gallery-hover-effect">
+                            <a class="gallery-icon venobox" href="img/child-images/MKL (100).JPG"><i
+                                    class="fa fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                    <div class="gallery-card-label">
+                        <i class="fa fa-image"></i> Drawings
+                    </div>
+                </div>
+                <div class="gallery-card-item overlay-hover">
+                    <div class="gallery-card-image overlay-effect sea-green-overlay">
+                        <a href="#"><img src="img/child-images/MKL (104).JPG" alt="Activities"></a>
+                        <div class="gallery-hover-effect">
+                            <a class="gallery-icon venobox" href="img/child-images/MKL (104).JPG"><i
+                                    class="fa fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                    <div class="gallery-card-label">
+                        <i class="fa fa-image"></i> Activities
+                    </div>
+                </div>
+                <div class="gallery-card-item overlay-hover">
+                    <div class="gallery-card-image overlay-effect sea-green-overlay">
+                        <a href="#"><img src="img/child-images/MKL (11).JPG" alt="Play Time"></a>
+                        <div class="gallery-hover-effect">
+                            <a class="gallery-icon venobox" href="img/child-images/MKL (11).JPG"><i
+                                    class="fa fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                    <div class="gallery-card-label">
+                        <i class="fa fa-image"></i> Play Time
+                    </div>
+                </div>
+                <div class="gallery-card-item overlay-hover">
+                    <div class="gallery-card-image overlay-effect sea-green-overlay">
+                        <a href="#"><img src="img/child-images/IMG_9989.jpg" alt="Excursions"></a>
+                        <div class="gallery-hover-effect">
+                            <a class="gallery-icon venobox" href="img/child-images/IMG_9989.jpg"><i
+                                    class="fa fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                    <div class="gallery-card-label">
+                        <i class="fa fa-image"></i> Excursions
+                    </div>
+                </div>
+                <div class="gallery-card-item overlay-hover">
+                    <div class="gallery-card-image overlay-effect sea-green-overlay">
+                        <a href="#"><img src="img/child-images/MKL (100).JPG" alt="School Life"></a>
+                        <div class="gallery-hover-effect">
+                            <a class="gallery-icon venobox" href="img/child-images/MKL (100).JPG"><i
+                                    class="fa fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                    <div class="gallery-card-label">
+                        <i class="fa fa-image"></i> School Life
+                    </div>
+                </div>
+            </div>
+            <div class="view-gallery text-center" style="margin-top:30px;">
+                <h4>See Our Sankalp School <span>Photo Gallery!</span></h4>
+                <a href="Photos.html" class="button-default">View Now</a>
+            </div>
+        </div>
+    </div>
+    <!--End of Gallery Fullwidth Area-->
+    <!--Teachers Large Carousel Area Start-->
+    <div class="teachers-large-carousel-area section-padding-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-title-wrapper title-yellow">
+                        <div class="section-title">
+                            <h3>Our Teachers</h3>
+                            <p>We are glad to introduce our professional staff</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="teacher-carousel carousel-style-one owl-carousel">
+                <div class="teacher-large-item text-center">
+                    <div class="teacher-large-image">
+                        <img src="img/teacher/6.jpg" alt="">
+                    </div>
+                    <div class="single-teacher-large-carousel">
+                        <h4>Kailo</h4>
+                        <span>Professor, Harvard College</span>
+                        <p>It is a long established fact that a reader will be distracted by the readable content of a
+                            page when looking at its layout.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="teacher-large-item text-center">
+                    <div class="teacher-large-image">
+                        <img src="img/teacher/7.jpg" alt="">
+                    </div>
+                    <div class="single-teacher-large-carousel">
+                        <h4>graves</h4>
+                        <span>Professor, Harvard College</span>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry, has been the
+                            industry's standard dummy.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="teacher-large-item text-center">
+                    <div class="teacher-large-image">
+                        <img src="img/teacher/11.jpg" alt="">
+                    </div>
+                    <div class="single-teacher-large-carousel">
+                        <h4>poppy</h4>
+                        <span>Professor, Harvard College</span>
+                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
+                            classical Latin, many desktop publishing.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="teacher-large-item text-center">
+                    <div class="teacher-large-image">
+                        <img src="img/teacher/6.jpg" alt="">
+                    </div>
+                    <div class="single-teacher-large-carousel">
+                        <h4>Kailo</h4>
+                        <span>Professor, Harvard College</span>
+                        <p>It is a long established fact that a reader will be distracted by the readable content of a
+                            page when looking at its layout.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End of Teachers Large Carousel Area-->
+    <!--Service Area Start-->
+
+    <!--End of Service Area-->
+    <!--Fun Factor Area Start-->
+    <div class="fun-factor-area fun-factor-two">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+                    <div class="single-fun-factor">
+                        <div class="fun-factor-icon">
+                            <i class="fa fa-users"></i>
+                        </div>
+                        <h2><span class="counter">25</span></h2>
+                        <span>Teacher</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+                    <div class="single-fun-factor">
+                        <div class="fun-factor-icon">
+                            <i class="fa fa-bank"></i>
+                        </div>
+                        <h2><span class="counter">45</span></h2>
+                        <span>Campus</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+                    <div class="single-fun-factor">
+                        <div class="fun-factor-icon">
+                            <i class="fa fa-user"></i>
+                        </div>
+                        <h2><span class="counter">55</span></h2>
+                        <span>Students</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+                    <div class="single-fun-factor">
+                        <div class="fun-factor-icon">
+                            <i class="fa fa-clock-o"></i>
+                        </div>
+                        <h2><span class="counter">250</span></h2>
+                        <span>Teaching Hours</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End of Fun Factor Area-->
+    <!--Blog Area Start-->
+    <div class="blog-area blog-two">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-title-wrapper title-yellow">
+                        <div class="section-title">
+                            <h3>Our Blog</h3>
+                            <p>Latest news &amp; event of our schools</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="blog-carousel carousel-style-one owl-carousel">
+                <div class="single-blog-item overlay-hover">
+                    <div class="single-blog-image">
+                        <div class="overlay-effect">
+                            <a href="#">
+                                <img src="img/blog/1.jpg" alt="">
+                                <span class="class-date">Dec 21 <span>2015</span></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="single-blog-text">
+                        <h4><a href="blog-details.html">New Friends Everyday at Kiddie</a></h4>
+                        <div class="blog-date">
+                            <span><i class="fa fa-calendar"></i>08 Apr, 2016</span>
+                        </div>
+                        <p>The concept of the activity room is about 'Learning', through play, in a totally different
+                            environment. The perfect class for your child with the best.</p>
+                        <a href="blog-details.html">Read more.</a>
+                    </div>
+                </div>
+                <div class="single-blog-item overlay-hover">
+                    <div class="single-blog-image">
+                        <div class="overlay-effect">
+                            <a href="#">
+                                <img src="img/blog/2.jpg" alt="">
+                                <span class="class-date">Jan 24 <span>2016</span></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="single-blog-text">
+                        <h4><a href="blog-details.html">Swimming Lessons at the New Pool</a></h4>
+                        <div class="blog-date">
+                            <span><i class="fa fa-calendar"></i>27 Jan, 2014</span>
+                        </div>
+                        <p>The concept of the activity room is about 'Learning', through play, in a totally different
+                            environment. The perfect class for your child with the best.</p>
+                        <a href="blog-details.html">Read more.</a>
+                    </div>
+                </div>
+                <div class="single-blog-item overlay-hover">
+                    <div class="single-blog-image">
+                        <div class="overlay-effect">
+                            <a href="#">
+                                <img src="img/blog/3.jpg" alt="">
+                                <span class="class-date">May 18 <span>2016</span></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="single-blog-text">
+                        <h4><a href="blog-details.html">Play is Our Brain’s Favorite Way of</a></h4>
+                        <div class="blog-date">
+                            <span><i class="fa fa-calendar"></i>30 Feb, 2015</span>
+                        </div>
+                        <p>The concept of the activity room is about 'Learning', through play, in a totally different
+                            environment. The perfect class for your child with the best.</p>
+                        <a href="blog-details.html">Read more.</a>
+                    </div>
+                </div>
+                <div class="single-blog-item overlay-hover">
+                    <div class="single-blog-image">
+                        <div class="overlay-effect">
+                            <a href="#">
+                                <img src="img/blog/1.jpg" alt="">
+                                <span class="class-date">Feb 09 <span>2016</span></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="single-blog-text">
+                        <h4><a href="blog-details.html">New Friends Everyday at Kiddie</a></h4>
+                        <div class="blog-date">
+                            <span><i class="fa fa-calendar"></i>08 Apr, 2016</span>
+                        </div>
+                        <p>The concept of the activity room is about 'Learning', through play, in a totally different
+                            environment. The perfect class for your child with the best.</p>
+                        <a href="blog-details.html">Read more.</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End of Blog Area-->
+
+    <!--Video Feature Area Start-->
+    <div class="video-feature-area section-padding">
+        <div class="video-wide-container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-title-wrapper title-yellow">
+                        <div class="section-title">
+                            <h3>School Video</h3>
+                            <p>Watch our school activities and campus life</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <div class="premium-video-box">
+                        <iframe width="100%" height="100%"
+                            src="https://www.youtube.com/embed/tkgMbvsZLng?si=pSxxTDwoP8sBMnDg&rel=0"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End of Video Feature Area-->
+
+    <!--Footer Area Start-->
+    <div id="footer"></div>
+    <!--End of Footer Area-->
+
+    <a target="_blank" href="https://wa.me/+919864646451" class="whatsapp-button"><i class="fa fa-whatsapp"
+            aria-hidden="true"></i></a>
+    <!-- jquery
+		============================================ -->
+    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+
+    <!-- Popper JS
+		============================================ -->
+    <script src="js/popper.js"></script>
+
+    <!-- bootstrap JS
+		============================================ -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- bootstrap Toggle JS
+		============================================ -->
+    <script src="js/bootstrap-toggle.min.js"></script>
+
+    <!-- nivo slider js
+		============================================ -->
+    <script src="lib/nivo-slider/js/jquery.nivo.slider.js"></script>
+    <script src="lib/nivo-slider/home.js"></script>
+
+    <!-- wow JS
+		============================================ -->
+    <script src="js/wow.min.js"></script>
+
+    <!-- meanmenu JS
+		============================================ -->
+    <script src="js/jquery.meanmenu.js"></script>
+
+    <!-- Owl carousel JS
+		============================================ -->
+    <script src="js/owl.carousel.min.js"></script>
+
+    <!-- Countdown JS
+		============================================ -->
+    <script src="js/jquery.countdown.min.js"></script>
+
+    <!-- scrollUp JS
+		============================================ -->
+    <script src="js/jquery.scrollUp.min.js"></script>
+
+    <!-- Waypoints JS
+		============================================ -->
+    <script src="js/waypoints.min.js"></script>
+
+    <!-- Counterup JS
+		============================================ -->
+    <script src="js/jquery.counterup.min.js"></script>
+
+    <!-- Slick JS
+		============================================ -->
+    <script src="js/slick.min.js"></script>
+
+    <!-- Mix It Up JS
+		============================================ -->
+    <script src="js/jquery.mixitup.js"></script>
+
+    <!-- Venubox JS
+		============================================ -->
+    <script src="js/venobox.min.js"></script>
+
+    <!-- plugins JS
+		============================================ -->
+    <script src="js/plugins.js"></script>
+
+    <!-- Google Map js
+		============================================ -->
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBuU_0_uLMnFM-2oWod_fzC0atPZj7dHlU"></script>
+    <script src="https://www.google.com/jsapi"></script>
+    <script>
+        function initialize() {
+            var mapOptions = {
+                zoom: 15,
+                scrollwheel: false,
+                center: new google.maps.LatLng(23.763494, 90.432226)
+            };
+
+            var map = new google.maps.Map(document.getElementById('googleMap'),
+                mapOptions);
+
+
+            var marker = new google.maps.Marker({
+                position: map.getCenter(),
+                animation: google.maps.Animation.BOUNCE,
+                icon: 'img/map-marker.png',
+                map: map
+            });
+
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+
+    <!-- main JS
+		============================================ -->
+    <script src="js/main.js"></script>
+</body>
+
+
+</html>

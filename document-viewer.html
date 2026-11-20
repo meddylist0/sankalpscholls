@@ -1,0 +1,177 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Document Viewer – Sankalp International School</title>
+    <meta name="description" content="View school documents and certificates">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="css/mobile-menu.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .doc-viewer-container {
+            padding: 80px 0;
+            background: #f9f9f9;
+            min-height: 60vh;
+        }
+
+        .doc-title-wrapper {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .doc-title-wrapper h2 {
+            font-size: 36px;
+            color: #2d2d2d;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .doc-title-wrapper h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #fdc735;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .gallery-item {
+            background: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            display: block;
+        }
+
+        .back-btn-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #fdc735;
+            color: #fff;
+            border-radius: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            background: #2d2d2d;
+            color: #fff;
+        }
+
+        #no-docs-message {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+            padding: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--Header Area Start-->
+    <div id="header"></div>
+    <!--End of Header Area-->
+
+    <!--Banner Area Start-->
+    <section class="about-bg">
+        <div class="content-text">
+            <h4 id="banner-title">Document Viewer</h4>
+            <a href="index.html">Home</a> / <a href="Documents-Inforamation.html">Documents</a> / <span
+                id="breadcrumb-active">Viewer</span>
+        </div>
+    </section>
+    <!--End of Banner Area-->
+
+    <section class="doc-viewer-container">
+        <div class="container">
+            <div class="doc-title-wrapper">
+                <h2 id="document-display-title">Loading Document...</h2>
+            </div>
+
+            <div id="image-gallery" class="image-gallery">
+                <!-- Images will be dynamicly loaded here -->
+            </div>
+
+            <div id="no-docs-message" style="display: none;">
+                <p>No images found for this document section.</p>
+            </div>
+
+            <div class="back-btn-container">
+                <a href="Documents-Inforamation.html" class="back-btn">
+                    <i class="fa fa-arrow-left"></i> Back to Documents
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!--Footer Area Start-->
+    <div id="footer"></div>
+    <!--End of Footer Area-->
+
+    <!-- scripts -->
+    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-toggle.min.js"></script>
+    <script src="lib/nivo-slider/js/jquery.nivo.slider.js"></script>
+    <script src="lib/nivo-slider/home.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/jquery.meanmenu.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.countdown.min.js"></script>
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/jquery.mixitup.js"></script>
+    <script src="js/venobox.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/document-viewer.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,540 @@
+/* Premium Mobile Menu & UI Refinements */
+
+/* Global: Prevent horizontal scroll on ALL pages */
+html,
+body {
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+}
+
+/* HIDDEN ON DESKTOP BY DEFAULT */
+.premium-mobile-menu,
+.menu-overlay,
+.mobile-menu-toggle {
+    display: none !important;
+}
+
+/* MOBILE VIEW (991px and below) */
+@media (max-width: 991px) {
+    .header-top {
+        display: none !important;
+    }
+
+    .logo-menu-bg,
+    .header-logo-menu {
+        padding: 0 !important;
+        margin: 0 !important;
+        background: #fff;
+    }
+
+    .logo,
+    .logo-area {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* PERFECTLY CENTERED LOGO */
+        width: 100%;
+        padding: 0 !important;
+        margin: 0 !important;
+        position: relative;
+    }
+
+    /* Fixed Toggle on the Left */
+    .mobile-menu-toggle {
+        display: block !important;
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0;
+        z-index: 10;
+    }
+
+    #mobile-toggle-btn {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    #mobile-toggle-btn .bar {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background-color: #333;
+        transition: 0.3s;
+        border-radius: 1px;
+    }
+
+    /* Logo Styling for Mobile */
+    .logo-img {
+        max-height: 70px !important;
+        /* Slightly larger for better look */
+        width: auto !important;
+        padding: 0 !important;
+        /* CRITICAL: Remove the 10px padding from style.css */
+        margin: 0 !important;
+        transition: 0.3s ease;
+    }
+
+    /* Premium Mobile Sidebar */
+    .premium-mobile-menu {
+        display: flex !important;
+        position: fixed;
+        top: 0;
+        left: -320px;
+        width: 300px;
+        height: 100vh;
+        background: #ffffff;
+        box-shadow: 4px 0 25px rgba(0, 0, 0, 0.15);
+        z-index: 99999;
+        transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow-y: auto;
+        flex-direction: column;
+        visibility: hidden;
+    }
+
+    .premium-mobile-menu.open {
+        left: 0;
+        visibility: visible;
+    }
+
+    .mobile-menu-header {
+        padding: 40px 20px 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-bottom: 1px solid #f2f2f2;
+        position: relative;
+        background: #fdfdfd;
+    }
+
+    .close-menu {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        /* Close button on the right for better UX */
+        background: #f5f5f5;
+        border: none;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        cursor: pointer;
+        color: #555;
+        transition: 0.3s;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .close-menu:hover {
+        background: #ff5722;
+        color: #fff;
+    }
+
+    .mobile-logo {
+        margin-top: 10px;
+        padding: 0 20px;
+    }
+
+    .mobile-logo img {
+        max-height: 80px;
+        width: auto;
+    }
+
+    .mobile-menu-content {
+        padding: 15px 0 40px;
+    }
+
+    /* Premium Navigation Links */
+    .mobile-nav ul {
+        list-style: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .mobile-nav li {
+        border-bottom: 1px solid #f8f8f8;
+        position: relative;
+    }
+
+    .mobile-nav li a {
+        display: block;
+        padding: 16px 25px;
+        color: #333;
+        font-size: 15px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: 0.3s;
+        letter-spacing: 0.3px;
+    }
+
+    .mobile-nav li a:hover,
+    .mobile-nav li.active>a {
+        background: #fffcfb;
+        color: #ff5722;
+    }
+
+    /* Stylish Submenu Toggles */
+    .submenu-toggle {
+        position: absolute;
+        right: 15px;
+        top: 12px;
+        width: 32px;
+        height: 32px;
+        background: #fff;
+        border: 1px solid #eee;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        /* Modern rounded square */
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: 500;
+        color: #ff5722;
+        transition: 0.4s all ease;
+        z-index: 5;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    }
+
+    .submenu-toggle.active {
+        background: #ff5722;
+        color: #fff;
+        border-color: #ff5722;
+        transform: rotate(45deg);
+        /* Professional rotate effect */
+        box-shadow: 0 4px 12px rgba(255, 87, 34, 0.3);
+    }
+
+    /* Clean Accordion Submenus */
+    .mobile-submenu {
+        display: none !important;
+        background: #fdfdfd;
+        border-top: 1px solid #f9f9f9;
+        padding-left: 10px;
+    }
+
+    .mobile-submenu.showing {
+        display: block !important;
+    }
+
+    .mobile-submenu li {
+        border-bottom: none;
+    }
+
+    .mobile-submenu li a {
+        padding: 12px 30px;
+        font-size: 14px;
+        font-weight: 500;
+        color: #666;
+        border-left: 2px solid transparent;
+    }
+
+    .mobile-submenu li a:hover {
+        background: #fff;
+        color: #ff5722;
+        border-left-color: #ff5722;
+        padding-left: 35px;
+    }
+
+    /* High-Level Overlay */
+    .menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 99998;
+        display: none !important;
+        backdrop-filter: blur(4px);
+        /* Premium blur effect */
+        transition: 0.4s;
+    }
+
+    .menu-overlay.active {
+        display: block !important;
+    }
+
+    /* SLIDER HEIGHT CONSISTENCY */
+    #nivoslider img {
+        height: 250px !important;
+        object-fit: cover !important;
+    }
+
+    /* BREADCRUMB BADGE FIX: Transform blue box into a premium badge overlay */
+    .about-bg,
+    .breadcrumb-banner-area {
+        height: 250px !important;
+        background-size: cover !important;
+        background-position: center !important;
+        display: flex !important;
+        align-items: flex-end !important;
+        padding: 0 !important;
+        position: relative !important;
+        margin-top: 0 !important;
+        overflow: hidden !important;
+    }
+
+    .content-text,
+    .breadcrumb-text {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        width: auto !important;
+        max-width: 85% !important;
+        margin: 0 auto 20px !important;
+        /* Centered badge at the bottom */
+        padding: 12px 25px !important;
+        background: rgba(0, 66, 150, 0.9) !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+        border-radius: 8px !important;
+        text-align: center !important;
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 5;
+    }
+
+    .breadcrumb-text h1,
+    .content-text h4 {
+        font-size: 18px !important;
+        margin: 0 !important;
+        color: #fff !important;
+        font-weight: 600 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1px !important;
+    }
+
+    .breadcrumb-bar,
+    .content-text a {
+        font-size: 13px !important;
+        color: rgba(255, 255, 255, 0.8) !important;
+        display: block !important;
+        margin-top: 2px !important;
+    }
+
+    .breadcrumb-bar ul {
+        justify-content: center !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        display: flex !important;
+        list-style: none !important;
+    }
+
+    .breadcrumb-bar ul li,
+    .breadcrumb-bar ul li a {
+        color: rgba(255, 255, 255, 0.8) !important;
+        font-size: 13px !important;
+    }
+
+    .breadcrumb-bar ul li::after {
+        content: "/" !important;
+        margin: 0 8px !important;
+        color: rgba(255, 255, 255, 0.5) !important;
+    }
+
+    /* BREADCRUMB BAR UL FIX */
+    .breadcrumb-bar ul {
+        justify-content: center !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        display: flex !important;
+        list-style: none !important;
+        flex-wrap: wrap !important;
+    }
+
+
+    /* MOBILE TAB SYSTEM REDESIGN: Stack tabs above content */
+    .row.most {
+        margin: 0 !important;
+    }
+
+    .toggle {
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+    }
+
+    .toggle .tabs {
+        width: 100% !important;
+        display: block !important;
+        margin-bottom: 20px !important;
+    }
+
+    .toggle .tabs .tab {
+        width: 90% !important;
+        margin: 5px auto !important;
+        height: auto !important;
+        line-height: normal !important;
+        padding: 12px 10px !important;
+        float: none !important;
+        border-radius: 6px !important;
+        font-size: 15px !important;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05) !important;
+    }
+
+    .toggle .panels {
+        width: 100% !important;
+        display: block !important;
+    }
+
+    .toggle .panels .panel {
+        padding: 10px 5px !important;
+        width: 100% !important;
+    }
+
+    .toggle .panels .panel img {
+        width: 100% !important;
+        height: auto !important;
+        border-radius: 8px !important;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+        margin-bottom: 15px !important;
+    }
+
+    .toggle .panels .panel .section-title h3 {
+        font-size: 20px !important;
+        margin-bottom: 15px !important;
+    }
+
+    .gallery-area.gallery-fullwidth.section-padding {
+        padding: 40px 0 !important;
+    }
+
+    /* GALLERY FIX: Prevent horizontal overflow/zip on mobile */
+    .gallery-area,
+    .gallery-wrapper,
+    .gallery-wrapper .row {
+        overflow: hidden !important;
+        max-width: 100% !important;
+    }
+
+    .gallery-wrapper .single-items {
+        overflow: hidden !important;
+    }
+
+    .gallery-wrapper .single-items img {
+        width: 100% !important;
+        height: 180px !important;
+        object-fit: cover !important;
+        display: block !important;
+    }
+
+    /* TEACHERS SECTION: Premium mobile owl-carousel nav buttons */
+    .teachers-large-carousel-area .owl-nav,
+    .teacher-carousel .owl-nav {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 12px !important;
+        margin-top: 20px !important;
+    }
+
+    .teachers-large-carousel-area .owl-prev,
+    .teachers-large-carousel-area .owl-next,
+    .teacher-carousel .owl-prev,
+    .teacher-carousel .owl-next {
+        width: 44px !important;
+        height: 44px !important;
+        border-radius: 50% !important;
+        background: linear-gradient(135deg, #fdc735 0%, #f9a800 100%) !important;
+        color: #fff !important;
+        font-size: 18px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border: none !important;
+        box-shadow: 0 4px 15px rgba(253, 199, 53, 0.45) !important;
+        transition: all 0.3s ease !important;
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        transform: none !important;
+    }
+
+    .teachers-large-carousel-area .owl-prev:hover,
+    .teachers-large-carousel-area .owl-next:hover,
+    .teacher-carousel .owl-prev:hover,
+    .teacher-carousel .owl-next:hover {
+        background: linear-gradient(135deg, #004296 0%, #0062cc 100%) !important;
+        box-shadow: 0 6px 20px rgba(0, 66, 150, 0.4) !important;
+        transform: scale(1.1) !important;
+    }
+
+    .teachers-large-carousel-area .owl-prev i,
+    .teachers-large-carousel-area .owl-next i,
+    .teacher-carousel .owl-prev i,
+    .teacher-carousel .owl-next i {
+        font-size: 16px !important;
+        color: #fff !important;
+        line-height: 1 !important;
+    }
+
+    /* Teacher card premium mobile look */
+    .teacher-large-item {
+        padding-bottom: 15px !important;
+    }
+
+    .teacher-large-image img {
+        border-radius: 12px !important;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12) !important;
+        max-height: 220px !important;
+        object-fit: cover !important;
+        width: 100% !important;
+    }
+
+    .single-teacher-large-carousel {
+        background: #fff !important;
+        border-radius: 12px !important;
+        padding: 15px !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07) !important;
+        margin-top: 10px !important;
+    }
+
+    .single-teacher-large-carousel h4 {
+        font-size: 18px !important;
+        font-weight: 700 !important;
+        color: #2d2d2d !important;
+        text-transform: capitalize !important;
+    }
+
+    .single-teacher-large-carousel span {
+        font-size: 13px !important;
+        color: #fdc735 !important;
+        font-weight: 600 !important;
+        display: block !important;
+        margin-bottom: 8px !important;
+    }
+
+    .single-teacher-large-carousel .social-links a {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 34px !important;
+        height: 34px !important;
+        border-radius: 50% !important;
+        background: #f5f5f5 !important;
+        color: #555 !important;
+        font-size: 14px !important;
+        margin: 3px !important;
+        transition: all 0.3s ease !important;
+    }
+
+    .single-teacher-large-carousel .social-links a:hover {
+        background: #fdc735 !important;
+        color: #fff !important;
+    }
+}
+
+/* Body Scroll Lock */
+body.no-scroll {
+    overflow: hidden !important;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
